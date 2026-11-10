@@ -1,0 +1,26 @@
+services:
+  clamav:
+    image: clamav/clamav:stable
+    container_name: mp4-clamav
+    restart: unless-stopped
+    expose:
+      - "3310"
+    healthcheck:
+      test: ["CMD-SHELL", "clamdscan --ping || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+  web:
+    build: .
+    container_name: mp4-shield-web
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      CLAMD_HOST: clamav
+      CLAMD_PORT: "3310"
+    depends_on:
+      clamav:
+        condition: service_healthy

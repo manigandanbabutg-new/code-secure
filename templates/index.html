@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 Shield | Video Malware Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <nav class="nav">
+            <div class="brand"><span class="brand-icon">盾</span> MP4<span>Shield</span></div>
+            <div class="secure-label"><span class="dot"></span> Private scanning</div>
+        </nav>
+
+        <section class="hero">
+            <div class="eyebrow">VIDEO SECURITY CHECK</div>
+            <h1>Scan your videos.<br><span>Stay protected.</span></h1>
+            <p>Check MP4 files for known malware signatures before opening or sharing them.</p>
+        </section>
+
+        <section class="scanner-card">
+            <div class="upload-area" id="dropArea">
+                <div class="upload-icon">↑</div>
+                <h2>Upload your MP4 video</h2>
+                <p>Drag and drop your file here, or choose it from your device.</p>
+                <input type="file" id="videoInput" accept=".mp4,video/mp4" hidden>
+                <button class="choose-btn" id="chooseBtn">Choose MP4 file</button>
+                <div class="file-info" id="fileInfo">MP4 format · Maximum size 100 MB</div>
+            </div>
+
+            <button class="scan-btn" id="scanBtn" disabled> <span>⌕</span> Scan video</button>
+            <div class="progress-wrap" id="progressWrap" hidden>
+                <div class="progress-track"><div class="progress-bar"></div></div>
+                <p>Scanning file with ClamAV antivirus...</p>
+            </div>
+            <div class="result" id="result" hidden aria-live="polite"></div>
+        </section>
+
+        <section class="notice">
+            <span>ⓘ</span>
+            <p><strong>Security note:</strong> A clean result means no known malware signature was detected.
+            It does not prove a file is completely safe. Keep your media player updated and avoid opening
+            unexpected files.</p>
+        </section>
+
+        <footer>MP4 Shield · Files are temporarily processed and deleted after scanning.</footer>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

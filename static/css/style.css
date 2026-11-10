@@ -1,0 +1,64 @@
+* { box-sizing: border-box; }
+:root {
+    --bg: #080d18; --panel: #111b2c; --line: #26354b;
+    --muted: #91a0b7; --white: #f4f7fb; --blue: #62a5ff;
+}
+body {
+    margin: 0; min-height: 100vh; color: var(--white);
+    background: radial-gradient(ellipse at 50% 0%, #172c4b 0%, var(--bg) 55%);
+    font-family: Inter, Arial, sans-serif;
+}
+.container { width: min(760px, 92%); margin: auto; padding: 28px 0 22px; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.brand { font-size: 20px; font-weight: 800; letter-spacing: -.7px; }
+.brand span:last-child { color: var(--blue); }
+.brand-icon { color: var(--blue); margin-right: 7px; }
+.secure-label { color: #b6c3d5; font-size: 12px; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #49d69a; margin-right: 6px; }
+.hero { text-align: center; padding: 75px 0 34px; }
+.eyebrow { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+h1 { font-size: clamp(38px, 7vw, 58px); line-height: 1.06; margin: 16px 0; letter-spacing: -2px; }
+h1 span { color: var(--blue); }
+.hero p { color: var(--muted); line-height: 1.6; font-size: 15px; max-width: 490px; margin: auto; }
+.scanner-card {
+    background: rgba(17, 27, 44, .92); border: 1px solid var(--line);
+    border-radius: 20px; padding: 22px; box-shadow: 0 24px 80px #0006;
+}
+.upload-area {
+    border: 1.5px dashed #405575; border-radius: 14px; padding: 36px 15px;
+    text-align: center; transition: .2s; background: #0c1524;
+}
+.upload-area.dragover { border-color: var(--blue); background: #142641; }
+.upload-icon {
+    width: 48px; height: 48px; border-radius: 14px; margin: 0 auto 16px;
+    display: grid; place-items: center; font-size: 28px; color: var(--blue);
+    background: #1b3557;
+}
+h2 { font-size: 18px; margin: 0 0 8px; }
+.upload-area p, .file-info { color: var(--muted); font-size: 13px; }
+.choose-btn, .scan-btn {
+    border: 0; border-radius: 9px; padding: 12px 20px; font-weight: 700; cursor: pointer;
+}
+.choose-btn { background: #243954; color: white; margin: 10px 0 4px; }
+.choose-btn:hover { background: #304b70; }
+.file-info { margin-top: 9px; overflow-wrap: anywhere; }
+.scan-btn {
+    width: 100%; margin-top: 16px; background: var(--blue); color: #061326;
+    font-size: 15px; padding: 15px;
+}
+.scan-btn:disabled { opacity: .4; cursor: not-allowed; }
+.progress-wrap { text-align: center; color: var(--muted); font-size: 13px; padding: 18px 0 2px; }
+.progress-track { height: 6px; background: #27364c; border-radius: 10px; overflow: hidden; }
+.progress-bar { width: 35%; height: 100%; background: var(--blue); border-radius: 10px; animation: loading 1.2s ease-in-out infinite alternate; }
+@keyframes loading { to { width: 95%; } }
+.result { margin-top: 16px; padding: 16px; border-radius: 10px; line-height: 1.5; overflow-wrap: anywhere; }
+.result.clean { background: #10372d; border: 1px solid #236b54; }
+.result.infected { background: #451e28; border: 1px solid #9a394d; }
+.result.error { background: #40351b; border: 1px solid #88702b; }
+.result strong { display: block; margin-bottom: 4px; }
+.notice { display: flex; gap: 10px; color: var(--muted); font-size: 12px; line-height: 1.6; margin: 20px 4px; }
+.notice span { color: var(--blue); font-size: 17px; }
+.notice p { margin: 0; }
+.notice strong { color: #d8e2f0; }
+footer { text-align: center; color: #687991; font-size: 11px; padding: 18px 0; }
+@media (max-width: 520px) { .hero { padding-top: 55px; } .scanner-card { padding: 13px; } .upload-area { padding: 28px 10px; } }
