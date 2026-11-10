@@ -6,7 +6,7 @@ import clamd
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = 100 * 1024 * 1024  # 100 MB
+app.config["MAX_CONTENT_LENGTH"] = 700 * 1024 * 1024  # 100 MB
 CLAMD_HOST = os.getenv("CLAMD_HOST", "clamav")
 CLAMD_PORT = int(os.getenv("CLAMD_PORT", "3310"))
 
